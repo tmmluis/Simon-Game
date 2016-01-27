@@ -3,31 +3,26 @@
   <head>
   	<meta charset="utf-8">
     <title>Simon Game</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="simon.css">
   </head>
   <body>
     <div class="game-container">
 
-      <div class="buttons">
-        <table>
-          <tr>
-            <td class="btn green"></td>
-            <td class="btn red"></td>
-          </tr>
-          <tr>
-            <td class="btn yellow"></td>
-            <td class="btn blue"></td>
-          </tr>
-        </table>
-      </div> <!-- ./buttons -->
+      <div class="buttons-pad">
+        <div class="game-btn green"></div>
+        <div class="game-btn red"></div>
+        <div class="game-btn yellow"></div>
+        <div class="game-btn blue"></div>
+      </div>
 
-      <div class="controls">
-        <h1>Simon</h1>
-        <button class="btn btn-default" type="button">Start</button>
-        <p>Count</p>
-        <button class="btn btn-default" type="button">Strict</button>
-      </div> <!-- ./controls -->
+      <div class="controls-container">
+        <div class="controls">
+          <p id="title">SIMON</p>
+          <button class="btn start" type="button">START</button>
+          <div class="counter">00</div>
+          <button class="btn strict" type="button">STRICT</button>
+      </div>
+    </div> <!-- ./controls-container -->
 
     </div> <!-- ./game-container -->
 
