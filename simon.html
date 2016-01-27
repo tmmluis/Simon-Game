@@ -3,9 +3,33 @@
   <head>
   	<meta charset="utf-8">
     <title>Simon Game</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="simon.css">
   </head>
   <body>
+    <div class="game-container">
+
+      <div class="buttons">
+        <table>
+          <tr>
+            <td class="btn green"></td>
+            <td class="btn red"></td>
+          </tr>
+          <tr>
+            <td class="btn yellow"></td>
+            <td class="btn blue"></td>
+          </tr>
+        </table>
+      </div> <!-- ./buttons -->
+
+      <div class="controls">
+        <h1>Simon</h1>
+        <button class="btn btn-default" type="button">Start</button>
+        <p>Count</p>
+        <button class="btn btn-default" type="button">Strict</button>
+      </div> <!-- ./controls -->
+
+    </div> <!-- ./game-container -->
 
     <script src="jquery-1.11.3.min.js"></script>
     <script src="simon.js"></script>
