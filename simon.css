@@ -59,11 +59,19 @@ button:active {
   background-color: #197619;
 }
 
+.green:active .green-on {
+  background-color: #5e9f5e;
+}
+
 .red {
   position: absolute;
   top: 20px;
   left: 180px;
   background-color:  #E71919;
+}
+
+.red:active .red-on {
+  background-color: #ee5e5e;
 }
 
 .yellow {
@@ -73,11 +81,19 @@ button:active {
   background-color:  #FDDC0B;
 }
 
+.yellow:active .yellow-on {
+  background-color: #FDEA6C;
+}
+
 .blue {
   position: absolute;
   top: 180px;
   left: 180px;
   background-color:  #2f30c2;
+}
+
+.blue:active .blue-on {
+  background-color: #6d6ed4;
 }
 
 .controls-container {
@@ -105,6 +121,12 @@ button:active {
   position: absolute;
   top: 70px;
   right: 20px;
+}
+
+.strict-on {
+  background-color: #ff3232;
+  border-right: 2px solid #e52d2d;
+  border-bottom: 2px solid #e52d2d;
 }
 
 .counter {
