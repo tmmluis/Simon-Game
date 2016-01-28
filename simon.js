@@ -3,7 +3,7 @@ $( document ).ready(function() {
   var colors = ['green', 'red', 'yellow', 'blue'];
   var history = [];
   var guessesCount = -1;
-  var counter = 0;
+  var level = 0;
   var waitingForInput = false;
 
   // Sounds to play when a color lights up.
@@ -16,10 +16,7 @@ $( document ).ready(function() {
 
   // Event on clicking the start/reset button.
   $('.start').on('click', function() {
-    history = [];
-    guessesCount = -1;
-    counter = 0;
-    $('.counter').text(counter);
+    resetGame();
     play();
   });
 
@@ -47,15 +44,13 @@ $( document ).ready(function() {
 
   // Starts or increments one interation of the game loop.
   function play() {
-    // Increment the counter and display it
-    counter++;
-    $('.counter').text(counter);
+    // Increment the level and display it
+    level++;
+    $('.level').text(level);
     // pick a random color
     var color = colors[Math.floor(Math.random() * (colors.length))];
     // Push the color to history array
     history.push(color);
-    console.log("Simon says: " + color);
-    console.log("Squence so far: " + history);
     // play the sequence of colors up to the last one
     displaySequence();
   }
@@ -71,6 +66,13 @@ $( document ).ready(function() {
     }
   }
 
+  function resetGame() {
+    history = [];
+    guessesCount = -1;
+    level = 0;
+    $('.level').text(level);
+  }
+
   function activateColor(index) {
     color = history[index];
     toggleColor(color);
@@ -84,31 +86,56 @@ $( document ).ready(function() {
 
   function checkPlayerGuess(playerColor, guessNumber) {
     // If player is correct check if it levels up
-    console.log("Player color: " + playerColor + " Guess num: " + guessNumber);
-    console.log("correct guess would have been: " + history[guessNumber]);
     if (history[guessNumber] === playerColor) {
       if(guessNumber === history.length - 1) {
-        // level up
-        console.log("You got the sequnce, level up!");
-        guessesCount = -1;
-        window.setTimeout(play, 1000);
+        if (guessNumber === 2) {
+          // Victory
+          alertPlayer(true);
+          window.setTimeout(resetGame, 2000);
+          window.setTimeout(play, 2500);
+        } else {
+          // level up
+          guessesCount = -1;
+          window.setTimeout(play, 500);
+        }
       } else {
-        console.log("got right color, finish the sequence!");
         return true;
       }
     } else if (strictMode) {
+      // Alert player
+      alertPlayer(false);
       // reset game and start from level 1
-      history = [];
-      guessesCount = -1;
-      counter = 0;
-      $('.counter').text(counter);
-      window.setTimeout(play, 1000);
+      window.setTimeout(resetGame, 1000);
+      window.setTimeout(play, 1500);
     } else {
       // Reset the guess sequence and give player another chance
       guessesCount = -1;
-      window.setTimeout(displaySequence);
+      alertPlayer(false);
+      window.setTimeout(displaySequence, 500);
     }
     return false;
+  }
+
+  // Alert the player that either she made a mistake or won.
+  function alertPlayer(victory) {
+    var alertTime = 1000;
+    toggleColor('green');
+    toggleColor('red');
+    toggleColor('yellow');
+    toggleColor('blue');
+    if (victory) {
+      alertTime = 2000;
+      $('.level').text(':)');
+    } else {
+      $('.level').text('!!');
+    }
+    window.setTimeout(toggleColor, alertTime, 'green');
+    window.setTimeout(toggleColor, alertTime, 'red');
+    window.setTimeout(toggleColor, alertTime, 'yellow');
+    window.setTimeout(toggleColor, alertTime, 'blue');
+    window.setTimeout(function() {
+      $('.level').text(level);
+    }, alertTime);
   }
 
   function toggleColor(color) {

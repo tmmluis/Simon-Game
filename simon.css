@@ -134,7 +134,7 @@ button:active {
   border-bottom: 2px solid #e52d2d;
 }
 
-.counter {
+.level {
   position: absolute;
   left: 130px;
   width: 50px;
