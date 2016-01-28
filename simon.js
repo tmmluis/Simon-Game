@@ -66,6 +66,7 @@ $( document ).ready(function() {
     }
   }
 
+  // Resets color sequence, player guesses and level.
   function resetGame() {
     history = [];
     guessesCount = -1;
@@ -73,6 +74,7 @@ $( document ).ready(function() {
     $('.level').text(level);
   }
 
+  // Lights up a specific color for 800ms and plays its sound.
   function activateColor(index) {
     color = history[index];
     toggleColor(color);
@@ -84,8 +86,9 @@ $( document ).ready(function() {
     }
   }
 
+  // Checks if the current guess is correct and follows the sequence order.
   function checkPlayerGuess(playerColor, guessNumber) {
-    // If player is correct check if it levels up
+    // If player is correct check if it levels up or victory achieved.
     if (history[guessNumber] === playerColor) {
       if(guessNumber === history.length - 1) {
         if (guessNumber === 19) {
@@ -99,9 +102,10 @@ $( document ).ready(function() {
           window.setTimeout(play, 500);
         }
       } else {
+        // continue guessing the next color in sequence.
         return true;
       }
-    } else if (strictMode) {
+    } else if (strictMode) { // If guess is not correct and stric mode is on.
       // Alert player
       alertPlayer(false);
       // reset game and start from level 1
