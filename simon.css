@@ -59,8 +59,9 @@ button:active {
   background-color: #197619;
 }
 
-.green:active .green-on {
+.green:active, .green-on {
   background-color: #5e9f5e;
+  box-shadow: 0 0 2px 2px #5e9f5e;
 }
 
 .red {
@@ -70,8 +71,9 @@ button:active {
   background-color:  #E71919;
 }
 
-.red:active .red-on {
+.red:active, .red-on {
   background-color: #ee5e5e;
+  box-shadow: 0 0 2px 2px #ee5e5e;
 }
 
 .yellow {
@@ -81,8 +83,9 @@ button:active {
   background-color:  #FDDC0B;
 }
 
-.yellow:active .yellow-on {
+.yellow:active, .yellow-on {
   background-color: #FDEA6C;
+  box-shadow: 0 0 2px 2px #FDEA6C;
 }
 
 .blue {
@@ -92,8 +95,9 @@ button:active {
   background-color:  #2f30c2;
 }
 
-.blue:active .blue-on {
+.blue:active, .blue-on {
   background-color: #6d6ed4;
+  box-shadow: 0 0 2px 2px #6d6ed4;
 }
 
 .controls-container {
