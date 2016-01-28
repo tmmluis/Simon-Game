@@ -14,8 +14,12 @@ $( document ).ready(function() {
     blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3")
   };
 
-  // Event on clicking the start button.
+  // Event on clicking the start/reset button.
   $('.start').on('click', function() {
+    history = [];
+    guessesCount = -1;
+    counter = 0;
+    $('.counter').text(counter);
     play();
   });
 

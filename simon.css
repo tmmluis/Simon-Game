@@ -119,6 +119,7 @@ button:active {
   position: absolute;
   left: 20px;
   top: 70px;
+  width: 80px;
 }
 
 .strict {
