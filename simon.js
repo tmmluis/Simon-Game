@@ -88,7 +88,7 @@ $( document ).ready(function() {
     // If player is correct check if it levels up
     if (history[guessNumber] === playerColor) {
       if(guessNumber === history.length - 1) {
-        if (guessNumber === 2) {
+        if (guessNumber === 19) {
           // Victory
           alertPlayer(true);
           window.setTimeout(resetGame, 2000);
